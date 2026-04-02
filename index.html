@@ -3,61 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blurred - Modern Web Design</title>
+  <title>Blurred Long Landing Page</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
+  <nav class="navbar" id="navbar">
     <div class="nav-container">
       <div class="logo">blurred.</div>
-      <ul class="nav-menu">
+      <ul class="nav-menu" id="nav-menu">
         <li><a href="#home">HOME</a></li>
-        <li><a href="#product">PRODUCT</a></li>
-        <li><a href="#store">STORE</a></li>
-        <li><a href="#about">ABOUT US</a></li>
+        <li><a href="#features">FEATURES</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#pricing">PRICING</a></li>
+        <li><a href="#contact">CONTACT</a></li>
       </ul>
       <div class="nav-buttons">
         <button class="btn-login">LOGIN</button>
         <button class="btn-register">REGISTER</button>
       </div>
-      <div class="menu-toggle">☰</div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
     <div class="hero-container">
-      <!-- Left Content -->
-      <div class="hero-left">
-        <h1 class="hero-title">Landing Page Design</h1>
-        <p class="hero-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a href="#" class="read-more">Read more</a>
+      <div class="hero-left fade-up">
+        <h1>Landing Page Design</h1>
+        <p>Build a modern, polished presence with smooth animations and premium visuals. Create trust and conversions with a design that feels alive.</p>
         <div class="hero-buttons">
           <button class="btn-primary">Get Started</button>
           <button class="btn-secondary">Try Free Trial</button>
         </div>
       </div>
-
-      <!-- Right Content - Glowing Circle -->
-      <div class="hero-right">
-        <div class="glowing-circle"></div>
-        <h2 class="circle-text">Modern<br>Web Design.</h2>
+      <div class="hero-right fade-up">
+        <div class="glow-circle"></div>
+        <div class="circle-text">Modern<br>Web Design</div>
       </div>
     </div>
+    <div class="hero-scroller">Scroll down</div>
+  </section>
 
-    <!-- Carousel Dots -->
-    <div class="carousel-dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-
-    <!-- Footer Text -->
-    <div class="hero-footer">
-      <p>Marcomm, Indonesia</p>
+  <section class="features" id="features">
+    <h2 class="section-title fade-up">Features</h2>
+    <div class="feature-grid">
+      <article class="feature-card fade-up">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Fast performance">
+        <h3>Ultra-Fast Performance</h3>
+        <p>Optimized for speed with lazy loading, minified assets, and smooth transitions.</p>
+      </article>
+      <article class="feature-card fade-up">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Responsive">
+        <h3>Responsive Layout</h3>
+        <p>Looks great on every device, from mobile to big screens with fluid grids.</p>
+      </article>
+      <article class="feature-card fade-up">
+        <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=800&q=80" alt="Customizable">
+        <h3>Fully Customizable</h3>
+        <p>Easy to adapt with flexible sections, color schemes, and spacing.</p>
+      </article>
     </div>
   </section>
+
+  <section class="services" id="services">
+    <h2 class="section-title fade-up">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <h3>Branding Strategy</h3>
+        <p>Craft your message and visual identity to connect deeply with users.</p>
+      </div>
+      <div class="service-card fade-up">
+        <h3>Design & UI/UX</h3>
+        <p>Modern interface design focused on usability and aesthetic appeal.</p>
+      </div>
+      <div class="service-card fade-up">
+        <h3>Development</h3>
+        <p>Robust front-end implementation with clean, maintainable code.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="pricing">
+    <h2 class="section-title fade-up">Start building your brand today</h2>
+    <p class="cta-text fade-up">Join hundreds of businesses enjoying an elevated web experience.</p>
+    <button class="btn-primary fade-up">Get Started Free</button>
+  </section>
+
+  <section class="footer" id="contact">
+    <div class="footer-content fade-up">
+      <div>
+        <h3>Contact</h3>
+        <p>Email: support@blurred.com</p>
+        <p>Phone: +123 456 789</p>
+      </div>
+      <div>
+        <h3>Address</h3>
+        <p>Marcomm Tower, Indonesia</p>
+      </div>
+      <div>
+        <h3>Social</h3>
+        <p>Twitter | Instagram | LinkedIn</p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Blurred. All rights reserved.</p>
+  </section>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
 </body>
 </html>
